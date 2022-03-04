@@ -3,6 +3,7 @@
   display: flex;
   flex-shrink: 0;
   background: linear-gradient(to top, #f1f5fb, #f9fcff);
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 .header-bg .bg-content {
   display: flex;
@@ -37,6 +38,7 @@
     padding: 64px 40px;
     font-size: 18px;
     flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   }
   .tags-content {
     display: flex;
@@ -64,6 +66,7 @@
     width: 100%;
     font-size: 1.1em;
     flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 }
 .tags-content img {

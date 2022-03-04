@@ -1,12 +1,9 @@
-*{
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-  padding: 0;
-  margin: 0;
-}
+
 .header {
   position: fixed;
   width: 100%;
   z-index: 199;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 .header-top {
   display: flex;

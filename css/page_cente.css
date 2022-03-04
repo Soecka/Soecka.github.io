@@ -1,7 +1,6 @@
-*{
+
+#article{
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-  padding: 0;
-  margin: 0;
 }
 #article h1 {
   font-size: 32px;
