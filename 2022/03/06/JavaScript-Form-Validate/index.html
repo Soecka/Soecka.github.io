@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>Vanilla JavaScript Form Validate-mtlog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="JavaScript,Form validate,twitter,">
+<meta name="description" content="">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Manta</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/Soecka">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/JavaScript">JavaScript</a></li>
+            
+            <li><a href="/tags/Form validate">Form validate</a></li>
+            
+            <li><a href="/tags/twitter">twitter</a></li>
+            
+            
+        </ul>
+        <h1>Vanilla JavaScript Form Validate</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">Manta</a></span>
+                <p>2022-03-06 </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <p><a target="_blank" rel="noopener" href="https://codepen.io/soecka-the-typescripter/pen/GROeVrN">Demo</a></p>
+<h2 id="Background">Background</h2>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/bradtraversy/vanillawebprojects">https://github.com/bradtraversy/vanillawebprojects</a></p>
+</blockquote>
+<p>Coding Marathon 1: Form Validate</p>
+<h2 id="Primitive-Plan">Primitive Plan</h2>
+<h3 id="Drafts">Drafts</h3>
+<ul>
+<li>Input check // regExp</li>
+<li>Illustration // .svg or .png</li>
+<li>Animation</li>
+<li>Email Auto-completion</li>
+</ul>
+<h3 id="Resource">Resource</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Forms/Form_validation">Form_validation</a> / / MDN instruction</li>
+<li><a target="_blank" rel="noopener" href="https://icons8.com/">illustration</a>  //  website for illustration</li>
+<li><a target="_blank" rel="noopener" href="https://codepen.io/Aakash-dev/pen/YzXqzzr">https://codepen.io/Aakash-dev/pen/YzXqzzr</a> // lovely illustration</li>
+<li><a target="_blank" rel="noopener" href="https://codepen.io/chris__sev/pen/LYOyjY">https://codepen.io/chris__sev/pen/LYOyjY</a> // input animation style</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/KjshServer/form-input-google">https://github.com/KjshServer/form-input-google</a> //  fancy google style form validator</li>
+</ul>
+<h2 id="Coding"><strong>Coding</strong></h2>
+<h3 id="HTML">HTML</h3>
+<p><strong>Tips</strong></p>
+<ul>
+<li>
+<p>form : novalidate</p>
+ <figure class="highlight html"><table><tbody><tr><td class="code"><pre><code class="hljs html">//custom the validator<br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">novalidate</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>input : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">ARIA</a></p>
+ <figure class="highlight html"><table><tbody><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-input"</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"inputText"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">" "</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"email_label"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"error-email"</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>//aria-live to make web content more accessible to people with disabilities.<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<h3 id="CSS">CSS</h3>
+<p><strong>Tips</strong></p>
+<ul>
+<li>
+<p>font and icon</p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@import</span> url(<span class="hljs-string">"https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap"</span>);<br><span class="hljs-keyword">@import</span> url(<span class="hljs-string">"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"</span>);<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>@media</p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> {<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">1200px</span>;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">800px</span>;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;<br>  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">15px</span> <span class="hljs-number">16.83px</span> <span class="hljs-number">0px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.05</span>);<br>}<br><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">960px</span>) {<br>  <span class="hljs-selector-class">.container</span> {<br>    <span class="hljs-attribute">margin</span>: <span class="hljs-number">10vh</span>;<br>    <span class="hljs-attribute">flex-direction</span>: column;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">600px</span>;<br>    <span class="hljs-attribute">max-height</span>: <span class="hljs-number">1200px</span>;<br>    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>;<br>  }<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>The animation style</p>
+<figure class="highlight css"><table><tbody><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.form-input</span> <span class="hljs-selector-tag">label</span> {<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">1rem</span>;<br>  <span class="hljs-attribute">left</span>: <span class="hljs-number">0rem</span>;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.25rem</span>;<br>  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;<br>  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--label-color);<br>  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.4s</span> ease-in-out;<br>}<br><span class="hljs-selector-tag">input</span><span class="hljs-selector-pseudo">:focus</span> + <span class="hljs-selector-tag">label</span> {<br>  <span class="hljs-attribute">top</span>: -<span class="hljs-number">1rem</span>;<br>  <span class="hljs-attribute">left</span>: -<span class="hljs-number">0.3rem</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-built_in">var</span>(--small-font-size);<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;<br>  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">10</span>;<br>  <span class="hljs-attribute">color</span>: black;<br>  <span class="hljs-attribute">background-color</span>: white;<br>}<br><br><span class="hljs-selector-class">.inputText</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-pseudo">:placeholder-shown</span>)<span class="hljs-selector-class">.inputText</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-pseudo">:focus</span>) + <span class="hljs-selector-tag">label</span> {<br>  <span class="hljs-attribute">top</span>: -<span class="hljs-number">1rem</span>;<br>  <span class="hljs-attribute">left</span>: -<span class="hljs-number">0.3rem</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-built_in">var</span>(--small-font-size);<br>  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;<br><br>  <span class="hljs-attribute">color</span>: black;<br>  <span class="hljs-attribute">background-color</span>: white;<br>}<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<h2 id="JavaScript">JavaScript</h2>
+<p>HTML and CSS is pretty simple.</p>
+<p>However, it takes me a long time to work through the validation of the form, web forms is kind of annoy. With the help of MDN, I found some useful articles about validation UI requirements, here are they:</p>
+<ul>
+<li>SmashingMagazine: <a target="_blank" rel="noopener" href="https://uxdesign.smashingmagazine.com/2012/06/27/form-field-validation-errors-only-approach/">Form-Field Validation: The Errors-Only Approach</a></li>
+<li>SmashingMagazine: <a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2009/07/07/web-form-validation-best-practices-and-tutorials/">Web Form Validation: Best Practices and Tutorials</a></li>
+<li>WebFX: <a target="_blank" rel="noopener" href="https://www.webfx.com/blog/web-design/10-tips-for-optimizing-web-form-submission-usability/">10 Tips for Optimizing Web Form Submission Usability</a></li>
+<li>A List Apart: <a target="_blank" rel="noopener" href="https://www.alistapart.com/articles/inline-validation-in-web-forms/">Inline Validation in Web Forms</a></li>
+</ul>
+<p>While I diged into it, more and more form validations rush to me, after a long time searching on the internet, I got what I coveted: <a target="_blank" rel="noopener" href="https://medium.com/wdstack/inline-validation-in-forms-designing-the-experience-123fb34088ce">Inline validation in forms — designing the experience</a>.<br>
+​</p>
+<p>As far as I’m concerned, the best default experience is the login validation of twitter.The article was published in 2016, nowadays the validation is better.</p>
+<p>Twitter’s form has some unique rules in place:</p>
+<ul>
+<li>Full Name field is validated <strong>after</strong> the data entry</li>
+<li>Phone or email field is validated <strong>during</strong> the data entry</li>
+<li>Password field is validated <strong>during</strong> the data entry</li>
+<li>Password field is showing a different error when the field is not focused (“Your password must be at least 6 characters.” vs “Please enter a password”).</li>
+</ul>
+<p>So I open the <a target="_blank" rel="noopener" href="https://twitter.com/home">twitter</a>, with the help of chrome Dev tools, I noticed that the input  tag is bound to a listening event called “invalid”, But I couldn’t achieve the same function with the “invalid” event, So I decided to finish it by myself.</p>
+<p><img src="https://2021blogpic.oss-cn-beijing.aliyuncs.com/blog/image/image-20220307164850337.png" alt="image-20220307164850337"></p>
+<p>Here is the draft above.</p>
+<p>And here is the <a target="_blank" rel="noopener" href="https://codepen.io/soecka-the-typescripter/pen/GROeVrN">demo</a></p>
+<p><img src="https://2021blogpic.oss-cn-beijing.aliyuncs.com/blog/image/image-20220307165215109.png" alt="image-20220307165215109"></p>
+<h2 id="Improve">Improve</h2>
+<ul>
+<li>Use setTimeout to check the input value</li>
+<li>Figure how twitter handle the “invalid” event</li>
+<li>Use jQuery?</li>
+</ul>
+<p><strong>Reading List</strong></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903940031545357">逐步优雅的表单验证</a></p>
+<p><a target="_blank" rel="noopener" href="https://validatejs.org/">validate.js</a></p>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.5;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+
+    
+    <a href="/2022/03/04/JavaScript-Roman-Numeral-Converter/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>JavaScript Roman Numeral Converter</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2022 By Manta. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/Soecka">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="github">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+		
+	</body>
+
+</html>
