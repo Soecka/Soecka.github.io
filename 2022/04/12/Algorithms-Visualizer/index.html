@@ -262,14 +262,14 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h2 id="背景">背景</h2>
+        <h3 id="背景">背景</h3>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/algorithm-visualizer/algorithm-visualizer">Algorithm Visualizer</a> is an interactive online platform that visualizes algorithms from code</p>
 </blockquote>
 <blockquote>
 <p>NPM 虐我千百遍</p>
 </blockquote>
-<h2 id="步骤"><a target="_blank" rel="noopener" href="https://github.com/algorithm-visualizer/algorithm-visualizer/blob/master/CONTRIBUTING.md">步骤</a></h2>
+<h3 id="步骤"><a target="_blank" rel="noopener" href="https://github.com/algorithm-visualizer/algorithm-visualizer/blob/master/CONTRIBUTING.md">步骤</a></h3>
 <p><strong>徒手下载</strong></p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">git clone https://github.com/&lt;your-username&gt;/algorithm-visualizer.git    <br></code></pre></td></tr></tbody></table></figure>
 <p><strong>常规操作配置</strong></p>
@@ -288,44 +288,52 @@
 <p>继续 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> stackoverflow <span class="github-emoji" style="display:inline;vertical-align:middle"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/60394291/error-node-modules-node-sass-command-failed">error /node_modules/node-sass: Command failed</a></p>
 <p>发现 package.json 中 node-sass 版本是 4.12+ ，对应支持Node版本是 Node 12</p>
 <p>到这里出错之后我就开始双线操作 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>🃏</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f0cf.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-<h3 id="分支操作">分支操作</h3>
-<p><strong>继续本地环境配置</strong><br>
-1. 安装Node 12</p>
-<pre><code>	<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">$ nvm ls-remote<br>$ nvm install v12.12.22<br>$ nvm use v12.12.22<br>$ node -v<br>	v12.12.22<br>	//一般切换完毕之后需要重开命令行或visua studio code,再次检查 node -v<br></code></pre></td></tr></tbody></table></figure>
-
-2. 查询文档的时候意外收获，有[博主教程](https://blog.csdn.net/luoqiang616477607/article/details/122563583)建议使用 Python2 ，其他内容语焉不详（这也是小白写这篇博客的出发点 :v: ），于是在本地继续配置 Python2 ，继续查教程，按照[How to Switch Python Version in Ubuntu &amp; Debian](https://tecadmin.net/how-to-switch-python-version-in-ubuntu-debian/)教程步骤，切换 Python
-
-	<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext"> $ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1 <br> //Output <br> update-alternatives: using /usr/bin/python2.7 to provide /usr/bin/python 	(python) in auto mode<br> $ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 2 <br> //Output <br> update-alternatives: using /usr/bin/python3.9 to provide /usr/bin/python (python) in auto mode<br> $ sudo update-alternatives --config python <br> //Output: [Select on option] <br> There are 2 choices for the alternative python (providing /usr/bin/python).<br> Selection    Path                Priority   Status<br> /------------------------------------------------------------/<br> 0            /usr/bin/python3.9   2         auto mode<br> 1            /usr/bin/python2.7   1         manual mode<br> 2            /usr/bin/python3.9   2         manual mode<br>Press  to keep the current choice[*], or type selection number: 1<br>$ python -V <br>Python 2.7.18<br></code></pre></td></tr></tbody></table></figure>
-
-3. npm报错太多，换yarn（继续使用npm也没影响，个人喜好）
-	<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">$ yarn install  //或者 npm install<br>$ yarn start //或者 npm start<br></code></pre></td></tr></tbody></table></figure>
-
-4. 成功安装，但是此时未能实现算法可视化，按照文档说明[algorithm-visualizer](https://github.com/algorithm-visualizer/algorithm-visualizer)/**[CONTRIBUTING.md](https://github.com/algorithm-visualizer/algorithm-visualizer/blob/master/CONTRIBUTING.md)**，打开`package.json` , 进行如下操作，一切正常
-	<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">- "proxy": "http://localhost:8080"<br>+ "proxy": "https://algorithm-visualizer.org"<br></code></pre></td></tr></tbody></table></figure>
-	
-5. 现在才发现官方项目文档下面说明有Gitoid链接，开启第二分支操作，尝试使用 Gitpod 配置项目，（到这里就已经结束了，下面是自由发挥）
-
-**Gitpod**
-
-1. 打开项目会自动配置安装，（观察一番之后发现应该是按照`gitpod.yml` 当中的预设配置项目），命令如下：
-
-   <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">tasks:<br> - init: &gt;<br>     git clone https://github.com/algorithm-visualizer/server.git &amp;&amp;<br>     cd server &amp;&amp;<br>     npm install &amp;&amp;<br>     echo -e "GITHUB_CLIENT_ID=dummy\nGITHUB_CLIENT_SECRET=dummy\nAWS_ACCESS_KEY_ID=dummy\nAWS_SECRET_ACCESS_KEY=dummy" &gt; .env.local &amp;&amp;<br>     cd ..<br>   command: cd server &amp;&amp; npm run watch<br> - init: &gt;<br>     npm install &amp;&amp;<br>     echo 'DANGEROUSLY_DISABLE_HOST_CHECK=true' &gt; .env.local<br>   command: npm start<br>ports:<br>  - port: 3000<br>    onOpen: notify<br></code></pre></td></tr></tbody></table></figure>
-
-2. 项目仍是报错，按上述方法继续配置node版本
-
-3. 报错 “ Invalid Host Header”, 在这一点上僵持了很久，我以为还是Python的问题，切换至Python也无变化
-
-4. 继续查询，Gitpod 官网找到了解决办法 [Invalid Host Header](https://www.gitpod.io/blog/gitpodify/#invalid-host-header)
-
-   <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">tasks:<br>  - before: export DANGEROUSLY_DISABLE_HOST_CHECK=true<br>    init: yarn install<br>    command: yarn start<br></code></pre></td></tr></tbody></table></figure>
-
-5. 所以先要 ‘export DANGEROUSLY_DISABLE_HOST_CHECK=true’，然后再yarn install，自己fork项目测试一下，修改  `.gitpod.yml`
-
-   <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">- npm install &amp;&amp;<br>- echo 'DANGEROUSLY_DISABLE_HOST_CHECK=true' &gt; .env.local<br>+ echo 'DANGEROUSLY_DISABLE_HOST_CHECK=true' &gt; .env.local &amp;&amp;<br>+ nvm install v12.22.12 &amp;&amp; nvm use v12.22.12 &amp;&amp; npm install <br></code></pre></td></tr></tbody></table></figure>
-
-6. 成功了，弱弱的创建一个pull request，帮助像我一样的无知小白
-</code></pre>
-<h2 id="阅读清单">阅读清单</h2>
+<h4 id="分支操作">分支操作</h4>
+<h5 id="继续本地环境配置"><strong>继续本地环境配置</strong></h5>
+<ol>
+<li>安装Node 12</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">$ nvm ls-remote<br>$ nvm install v12.12.22<br>$ nvm use v12.12.22<br>$ node -v<br>v12.12.22<br></code></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>查询文档的时候意外收获，有<a target="_blank" rel="noopener" href="https://blog.csdn.net/luoqiang616477607/article/details/122563583">博主教程</a>建议使用 Python2 ，其他内容语焉不详（这也是小白写这篇博客的出发点 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>✌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> ），于是在本地继续配置 Python2 ，继续查教程，按照<a target="_blank" rel="noopener" href="https://tecadmin.net/how-to-switch-python-version-in-ubuntu-debian/">How to Switch Python Version in Ubuntu &amp; Debian</a>教程步骤，切换 Python</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1 <br>//Output <br>update-alternatives: using /usr/bin/python2.7 to provide /usr/bin/python 	(python) <span class="hljs-keyword">in</span> auto mode<br>$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 2 <br>//Output <br>update-alternatives: using /usr/bin/python3.9 to provide /usr/bin/python (python) <span class="hljs-keyword">in</span> auto mode<br>$ sudo update-alternatives --config python <br>//Output: [Select on option] <br>There are 2 choices <span class="hljs-keyword">for</span> the alternative python (providing /usr/bin/python).<br>     Selection    Path                Priority   Status<br>     /------------------------------------------------------------/<br>     0            /usr/bin/python3.9   2         auto mode<br>     1            /usr/bin/python2.7   1         manual mode<br>     2            /usr/bin/python3.9   2         manual mode<br>   Press  to keep the current choice[*], or <span class="hljs-built_in">type</span> selection number: 1<br>$ python -V <br>Python 2.7.18<br></code></pre></td></tr></tbody></table></figure>
+<ol start="3">
+<li>npm报错太多，换yarn（继续使用npm也没影响，个人喜好）</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">$ yarn install  <br>//或者 npm install<br>$ yarn start <br>//或者 npm start<br></code></pre></td></tr></tbody></table></figure>
+<ol start="4">
+<li>成功安装，但是此时未能实现算法可视化，按照文档说明<a target="_blank" rel="noopener" href="https://github.com/algorithm-visualizer/algorithm-visualizer">algorithm-visualizer</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/algorithm-visualizer/algorithm-visualizer/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></strong>，打开<code>package.json</code> , 进行如下操作，一切正常</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">- <span class="hljs-string">"proxy"</span>: <span class="hljs-string">"http://localhost:8080"</span><br>+ <span class="hljs-string">"proxy"</span>: <span class="hljs-string">"https://algorithm-visualizer.org"</span><br></code></pre></td></tr></tbody></table></figure>
+<ol start="5">
+<li>现在才发现官方项目文档下面说明有Gitoid链接，开启第二分支操作，尝试使用 Gitpod 配置项目，（到这里就已经结束了，下面是自由发挥）</li>
+</ol>
+<h5 id="Gitpod"><strong>Gitpod</strong></h5>
+<ol>
+<li>打开项目会自动配置安装，（观察一番之后发现应该是按照<code>gitpod.yml</code> 当中的预设配置项目），命令如下：</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">tasks:<br> - init: &gt;<br>     git <span class="hljs-built_in">clone</span> https://github.com/algorithm-visualizer/server.git &amp;&amp;<br>     <span class="hljs-built_in">cd</span> server &amp;&amp;<br>     npm install &amp;&amp;<br>     <span class="hljs-built_in">echo</span> -e <span class="hljs-string">"GITHUB_CLIENT_ID=dummy\nGITHUB_CLIENT_SECRET=dummy\nAWS_ACCESS_KEY_ID=dummy\nAWS_SECRET_ACCESS_KEY=dummy"</span> &gt; .env.local &amp;&amp;<br>     <span class="hljs-built_in">cd</span> ..<br>   <span class="hljs-built_in">command</span>: <span class="hljs-built_in">cd</span> server &amp;&amp; npm run watch<br> - init: &gt;<br>     npm install &amp;&amp;<br>     <span class="hljs-built_in">echo</span> <span class="hljs-string">'DANGEROUSLY_DISABLE_HOST_CHECK=true'</span> &gt; .env.local<br>   <span class="hljs-built_in">command</span>: npm start<br>ports:<br>  - port: 3000<br>    onOpen: notify<br></code></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>
+<p>项目仍是报错，按上述方法继续配置node版本</p>
+</li>
+<li>
+<p>报错 “ Invalid Host Header”, 在这一点上僵持了很久，我以为还是Python的问题，切换至Python也无变化</p>
+</li>
+<li>
+<p>继续查询，Gitpod 官网找到了解决办法 <a target="_blank" rel="noopener" href="https://www.gitpod.io/blog/gitpodify/#invalid-host-header">Invalid Host Header</a></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">tasks:<br>  - before: <span class="hljs-built_in">export</span> DANGEROUSLY_DISABLE_HOST_CHECK=<span class="hljs-literal">true</span><br>    init: yarn install<br>    <span class="hljs-built_in">command</span>: yarn start<br></code></pre></td></tr></tbody></table></figure>
+<ol start="5">
+<li>所以先要 ‘export DANGEROUSLY_DISABLE_HOST_CHECK=true’，然后再yarn install，自己fork项目测试一下，修改  <code>.gitpod.yml</code></li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">- npm install &amp;&amp;<br>- <span class="hljs-built_in">echo</span> <span class="hljs-string">'DANGEROUSLY_DISABLE_HOST_CHECK=true'</span> &gt; .env.local<br>+ <span class="hljs-built_in">echo</span> <span class="hljs-string">'DANGEROUSLY_DISABLE_HOST_CHECK=true'</span> &gt; .env.local &amp;&amp;<br>+ nvm install v12.22.12 &amp;&amp; nvm use v12.22.12 &amp;&amp; npm install <br></code></pre></td></tr></tbody></table></figure>
+<ol start="6">
+<li>成功了，弱弱的创建一个pull request，帮助像我一样的无知小白</li>
+</ol>
+<h3 id="阅读清单">阅读清单</h3>
 <p><a target="_blank" rel="noopener" href="https://www.gitpod.io/blog/gitpodify/#invalid-host-header">Gitpodifying — The Ultimate Guide</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/luoqiang616477607/article/details/122563583">algorithm visualizer怎么使用</a></p>
 <p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1341865">ubuntu下安装node版本管理工具NVM - 云+社区 - 腾讯云</a></p>

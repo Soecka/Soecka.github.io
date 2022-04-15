@@ -261,12 +261,12 @@
 <div class="article-content">
     <div id="article" class="content">
         <p><a target="_blank" rel="noopener" href="https://custom-video-olayer.soecka.repl.co/">Demo</a></p>
-<h2 id="Background">Background</h2>
+<h2 id="Background-2">Background</h2>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/bradtraversy/vanillawebprojects">https://github.com/bradtraversy/vanillawebprojects</a></p>
 </blockquote>
 <p>Coding Marathon 2: Custom Video Player</p>
-<h3 id="Drafts">Drafts</h3>
+<h3 id="Drafts-2">Drafts</h3>
 <blockquote>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">东市买骏马，西市买鞍鞯，<br>南市买辔头，北市买长鞭。<br></code></pre></td></tr></tbody></table></figure>
 </blockquote>
@@ -278,7 +278,7 @@
 <li><input type="checkbox" id="checkbox4" checked="true"><label for="checkbox4">  hover media control</label></li>
 <li><input type="checkbox" id="checkbox5" checked="true"><label for="checkbox5">  Progress bar hovering thumbnails</label></li>
 </ul>
-<h3 id="Resource">Resource</h3>
+<h3 id="Resource-2">Resource</h3>
 <ul>
 <li>
 <p><a target="_blank" rel="noopener" href="https://icons8.com/">illustration</a>  //  website for illustration</p>
@@ -299,18 +299,18 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/hughfenghen/hughfenghen.github.io/issues/51">js获取元素（Element）的高度；监听元素高度变化 #51</a></p>
 </li>
 </ul>
-<h2 id="Coding"><strong>Coding</strong></h2>
-<h3 id="HTML">HTML</h3>
+<h2 id="Coding-2"><strong>Coding</strong></h2>
+<h3 id="HTML-2">HTML</h3>
 <p><strong>Skeleton</strong></p>
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"video-control"</span>&gt;</span><br>        	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"video-src"</span>&gt;</span><br>        	 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>         	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-control"</span>&gt;</span><br>        	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
 <p><strong>.media-control</strong></p>
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media-control"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"progress"</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"thumb"</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"more-set"</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-set"</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
-<h3 id="CSS">CSS</h3>
+<h3 id="CSS-2">CSS</h3>
 <p>Flex: container</p>
 <figure class="highlight css"><table><tbody><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.container</span> {<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-attribute">align-items</span>: center;<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>Position:</p>
 <figure class="highlight css"><table><tbody><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#video-control</span> {<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-attribute">min-width</span>: <span class="hljs-number">600px</span>;<br>  <span class="hljs-attribute">background</span>: transparent;<br>  <span class="hljs-attribute">background-color</span>: black;<br>}<br><span class="hljs-selector-class">.video-src</span> {<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">5</span>;<br>}<br><br><span class="hljs-selector-tag">video</span> {<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">object-fit</span>: cover;<br>}<br><span class="hljs-selector-class">.media-control</span> {<br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br>  <span class="hljs-attribute">bottom</span>: -<span class="hljs-number">5px</span>;<br>  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.8</span>;<br>  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">2147483647</span>;<br>  <span class="hljs-attribute">transition</span>: opacity <span class="hljs-number">0.25s</span> <span class="hljs-built_in">cubic-bezier</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">1</span>);<br>}<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="JavaScript">JavaScript</h2>
+<h2 id="JavaScript-2">JavaScript</h2>
 <p>There are several challenges to work through</p>
 <ol>
 <li>
@@ -341,7 +341,7 @@
 <figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> getCanva = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {<br>    <span class="hljs-keyword">const</span> scaleVal = <span class="hljs-number">0.25</span>;<br>    <span class="hljs-keyword">let</span> posX = e.offsetX,<br>        width = <span class="hljs-built_in">Math</span>.floor(video.offsetWidth * scaleVal),<br>        height = <span class="hljs-built_in">Math</span>.floor(video.offsetHeight * scaleVal);<br>    canvas.width = width;<br>    canvas.height = height;<br>    ctx = canvas.getContext(<span class="hljs-string">'2d'</span>);<br>    video2.currentTime = (posX * video.duration) / progress.offsetWidth<br>    ctx.drawImage(video2, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, width, height)<br>    <span class="hljs-keyword">let</span> img = <span class="hljs-keyword">new</span> Image();<br>    img.src = canvas.toDataURL(<span class="hljs-string">'image/png'</span>);<br>    img.width = width;<br>    <span class="hljs-built_in">console</span>.log(width)<br>    canvasContainer.innerHTML = <span class="hljs-string">`&lt;img src=<span class="hljs-subst">${canvas.toDataURL(<span class="hljs-string">'image/png'</span>)}</span>&gt;`</span><br>    canvasContainer.style.display = <span class="hljs-string">"block"</span>;<br>    <span class="hljs-keyword">if</span> (posX &gt; <span class="hljs-number">75</span>) {<br>        canvasContainer.style.left = posX - width / <span class="hljs-number">2</span> + <span class="hljs-number">10</span> + <span class="hljs-string">"px"</span>;<br>    } <span class="hljs-keyword">else</span> {<br>        canvasContainer.style.left = <span class="hljs-string">"10px"</span>;<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>I create two <code>&lt;video&gt;</code> ,one for usual play,another for snapshot.</p>
 <p><img src="https://2021blogpic.oss-cn-beijing.aliyuncs.com/blog/image/play.svg" alt="video"></p>
-<h2 id="Improve">Improve</h2>
+<h2 id="Improve-2">Improve</h2>
 <ol>
 <li>While I test on web, the canvas couldn’t get the thumbnails due to the low quality of internet</li>
 <li>Add more transition animation for media control set</li>
